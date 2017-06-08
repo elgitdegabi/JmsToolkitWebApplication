@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Purge...</title>
+</head>
+<body>
+    <div id="show-data"></div>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/resources.js"></script>
+    <script src="js/purge.js"></script>
+    <script>
+    	function purgeSubmit(){
+    		var selectedValue = $('#resources option:selected').val(); 
+    		purgeMessages(selectedValue);
+    	}
+    </script>
+    <p>Browse in:&nbsp;&nbsp;<select id="resources" name="resources"></select>
+    </p>
+    <p>Result:&nbsp;&nbsp;<button type="button" onclick="purgeSubmit();">Purge Now!</button>
+    </p>
+</body>
+</html>

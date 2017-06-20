@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Send to...</title>
+</head>
+<body>
+    <div id="show-data"></div>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/resources.js"></script>
+    <script src="js/send.js"></script>
+    <script>
+    	function submitMessage(){
+    		var resourceValue = $('#resources option:selected').val(); 
+    		var messageValue = $('#message').val(); 
+    		sendMessage(resourceValue, messageValue);
+    	}
+    </script>
+    <p>Send to:&nbsp;&nbsp;<select id="resources" name="resources"></select>
+    </p>
+    <p>Message:&nbsp;&nbsp;</p>
+    <p><textarea cols="100" rows="40" id="message"></textarea></p>
+    <p>
+    	<table>
+    		<th>
+    			<td><button type="button" onclick="submitMessage();">Send Now!</button></td>
+    			<td>&nbsp;&nbsp;</td>
+    			<td><div id="status"></div></td>
+    		</th>
+    	</table>
+    </p>
+</body>
+</html>

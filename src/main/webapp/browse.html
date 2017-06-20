@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Browse for...</title>
+</head>
+<body>
+    <div id="show-data"></div>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/resources.js"></script>
+    <script src="js/browse.js"></script>
+    <script>
+    	function submitBrowse(){
+    		var selectedValue = $('#resources option:selected').val(); 
+    		browseForResults(selectedValue);
+    	}
+    </script>
+    <p>Browse in:&nbsp;&nbsp;<select id="resources" name="resources"></select>
+    </p>
+    <p>Result:&nbsp;&nbsp;<button type="button" onclick="submitBrowse();">Browse Now!</button>
+    </p>
+    <table id="browseResult"></table>
+</body>
+</html>

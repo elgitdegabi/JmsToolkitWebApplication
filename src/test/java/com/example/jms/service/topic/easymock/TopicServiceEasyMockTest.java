@@ -83,25 +83,6 @@ public class TopicServiceEasyMockTest {
 		EasyMock.replay(message1Mock, message2Mock, message3Mock);
 	}
 
-	private void initTopicSubscribers() throws Exception {
-		EasyMock.expect(connectionFactoryMock.createConnection()).andReturn(connectionMock);
-		connectionMock.setClientID(EasyMock.anyString());
-		EasyMock.expectLastCall();
-		EasyMock.expect(connectionMock.createSession(EasyMock.anyBoolean(), EasyMock.anyInt())).andReturn(sessionMock);
-		EasyMock.expect(sessionMock.createTopic(EasyMock.anyString())).andReturn(topicDestinationMock);
-		EasyMock.expect(sessionMock.createDurableSubscriber(EasyMock.anyObject(Topic.class), EasyMock.anyString())).andReturn(messageConsumerMock);
-		messageConsumerMock.close();
-		EasyMock.expectLastCall();
-		sessionMock.close();
-		EasyMock.expectLastCall();
-		connectionMock.close();
-		EasyMock.expectLastCall();
-				
-		EasyMock.replay(connectionFactoryMock, connectionMock, sessionMock, topicDestinationMock, messageConsumerMock);
-		
-		topicService.initTopicSubscribers();
-	}
-
 	@Test
 	public void sendMessageToWithValidArgumentsShouldReturnATrueResponse() throws Exception {
 		EasyMock.expect(connectionFactoryMock.createConnection()).andReturn(connectionMock);
